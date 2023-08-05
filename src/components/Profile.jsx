@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Avatar } from "@mui/material";
 import userContextData from "./context/userContext";
-
+import GoogleMapReact from "google-map-react";
 const Profile = () => {
   //get user data from context
   const { userinfo } = useContext(userContextData);
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627,
+    },
+    zoom: 11,
+  };
   return (
     <div>
       <div className="profile-container">
@@ -96,7 +103,18 @@ const Profile = () => {
             </table>
           </div>
           <div className="map">
-            <img src="https://i.stack.imgur.com/HILmr.png" alt="map" />
+            <>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2710.3119725947317!2d77.59343284587686!3d12.926249612463817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15090fc15417%3A0x10eefde49e9fd94!2sPanorbit!5e0!3m2!1sen!2sin!4v1691245219496!5m2!1sen!2sin"
+                width="500"
+                className="map"
+                height="350"
+                style={{ border: 0 }}
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </>
             <div className="map-content">
               <p>
                 Lat: <span>{userinfo?.address?.geo?.lat}</span>
