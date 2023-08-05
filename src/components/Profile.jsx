@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Avatar } from "@mui/material";
 import userContextData from "./context/userContext";
-import GoogleMapReact from "google-map-react";
 const Profile = () => {
   //get user data from context
   const { userinfo } = useContext(userContextData);
@@ -110,7 +109,7 @@ const Profile = () => {
                 className="map"
                 height="350"
                 style={{ border: 0 }}
-                allowfullscreen=""
+                allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
